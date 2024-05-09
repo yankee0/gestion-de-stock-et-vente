@@ -60,6 +60,14 @@ Connexion
   <div class="card">
     <div class="card-body">
       <div class="card-title"><?= isset($_GET["r"]) ? "Résultat: " : "Liste des utilisateurs: " ?><?= count($users) ?> utilisateur(s)</div>
+      <div class="d-flex justify-content-end">
+        <form action="#">
+          <div class="mb-3">
+            <input type="text" class="form-control" name="r" value="<?= $_GET["r"] ?? "" ?>" placeholder="Rechercher" />
+          </div>
+        </form>
+
+      </div>
       <div class="table-responsive card-table">
         <table id="myTable" class="table table-vcenter">
           <thead>
