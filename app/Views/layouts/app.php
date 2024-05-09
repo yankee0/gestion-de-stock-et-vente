@@ -118,8 +118,8 @@
                 </a>
               </li>
 
-              <li class="nav-item <?= url_is("utilisateurs*") ? "active" : "" ?>">
-                <a class="nav-link d-flex align-items-center" href="<?= base_url("utilisateurs") ?>">
+              <li class="nav-item <?= url_is("factures*") ? "active" : "" ?>">
+                <a class="nav-link d-flex align-items-center" href="<?= base_url("factures") ?>">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                     <i class="ti ti-file"></i>
                   </span>
@@ -128,8 +128,8 @@
                   </span>
                 </a>
               </li>
-              <li class="nav-item <?= url_is("utilisateurs*") ? "active" : "" ?>">
-                <a class="nav-link d-flex align-items-center" href="<?= base_url("utilisateurs") ?>">
+              <li class="nav-item <?= url_is("inventaire*") ? "active" : "" ?>">
+                <a class="nav-link d-flex align-items-center" href="<?= base_url("inventaire") ?>">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                     <i class="ti ti-clipboard-list"></i>
                   </span>

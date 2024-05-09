@@ -10,6 +10,17 @@ class UserController extends BaseController
 {
     public function index()
     {
+        $r = $this->request->getGet("r");
+        $model = new UserModel();
+        if ($r) {
+            $model->like("name", $r);
+            $model->orLike("profile", $r);
+            $model->orLike("login", $r);
+        }
+
+        return view("users/index", [
+            "users" => $model->find()
+        ]);
     }
 
     public function loginPage()
@@ -45,7 +56,7 @@ class UserController extends BaseController
         return redirect()->to("/");
     }
 
-    public function create_user()
+    public function create()
     {
         if (session()->user["profile"] != "ADMIN") {
             throw new PageNotFoundException();
@@ -58,7 +69,6 @@ class UserController extends BaseController
             $model->insert($data);
             return redirect()
                 ->back()
-                ->withInput()
                 ->with("message", "Création réussie");
         } catch (\Throwable $th) {
             return redirect()
