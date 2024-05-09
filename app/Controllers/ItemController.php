@@ -12,14 +12,55 @@ class ItemController extends BaseController
     {
         $r = $this->request->getGet("r");
         $model = new ItemModel();
+
         if ($r) {
             $model->like("name", $r);
-            $model->orLike("profile", $r);
-            $model->orLike("login", $r);
         }
 
-        return view("users/index", [
-            "users" => $model->find()
+        return view("items/index", [
+            "items" => $model->find()
         ]);
+    }
+
+    public function create()
+    {
+        $data = $this->request->getPost();
+        $model = new ItemModel();
+
+        try {
+            $model->insert($data);
+            return redirect()
+                ->back()
+                ->with("message", "Ajout réussie");
+        } catch (\Throwable $th) {
+            return redirect()
+                ->back()
+                ->with("error", $th->getMessage());
+        }
+    }
+
+    public function delete($id)
+    {
+        $model = new ItemModel();
+        $model->delete($id);
+        return redirect()
+            ->back()
+            ->with("message", "Suppression réussie");
+    }
+
+    public function update()
+    {
+        $data = $this->request->getPost();
+        $model = new ItemModel();
+        try {
+            $model->save($data);
+            return redirect()
+                ->back()
+                ->with("message", "Modifications enregistrées");
+        } catch (\Throwable $th) {
+            return redirect()
+                ->back()
+                ->with("error", $th->getMessage());
+        }
     }
 }

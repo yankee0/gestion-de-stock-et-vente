@@ -118,16 +118,6 @@
                 </a>
               </li>
 
-              <li class="nav-item <?= url_is("factures*") ? "active" : "" ?>">
-                <a class="nav-link d-flex align-items-center" href="<?= base_url("factures") ?>">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <i class="ti ti-file"></i>
-                  </span>
-                  <span class="nav-link-title">
-                    Factures
-                  </span>
-                </a>
-              </li>
               <li class="nav-item <?= url_is("inventaire*") ? "active" : "" ?>">
                 <a class="nav-link d-flex align-items-center" href="<?= base_url("inventaire") ?>">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -138,6 +128,18 @@
                   </span>
                 </a>
               </li>
+
+              <li class="nav-item <?= url_is("factures*") ? "active" : "" ?>">
+                <a class="nav-link d-flex align-items-center" href="<?= base_url("factures") ?>">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                    <i class="ti ti-file"></i>
+                  </span>
+                  <span class="nav-link-title">
+                    Factures
+                  </span>
+                </a>
+              </li>
+              
 
               <li class="nav-item dropdown <?= url_is("rapports*") ? "active" : "" ?>">
                 <a class="nav-link d-flex align-items-center" href="<?= base_url("rapports") ?>">
@@ -225,33 +227,6 @@
   <script src="<?= base_url("pack/js/demo.min.js?1684106062") ?>" defer></script>
   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/2.0.3/js/dataTables.bootstrap5.min.js"></script>
-  <script>
-    const myModalReset = new bootstrap.Modal(
-      document.getElementById("modalIdResetPassword"),
-      options,
-    );
-  </script>
-  <script>
-    document.getElementById("togglePassword").addEventListener("click", () => {
-      const password = document.getElementById("password")
-      const actualType = password.getAttribute("type")
-      password.setAttribute("type", actualType == "password" ? "text" : "password");
-    })
-  </script>
-  <script>
-    document.getElementById("togglePasswordn").addEventListener("click", () => {
-      const password = document.getElementById("passwordn")
-      const actualType = password.getAttribute("type")
-      password.setAttribute("type", actualType == "password" ? "text" : "password");
-    })
-  </script>
-  <script>
-    document.getElementById("togglePasswordc").addEventListener("click", () => {
-      const password = document.getElementById("passwordc")
-      const actualType = password.getAttribute("type")
-      password.setAttribute("type", actualType == "password" ? "text" : "password");
-    })
-  </script>
   <?= $this->renderSection('js'); ?>
 </body>
 

@@ -1,6 +1,6 @@
 <?= $this->extend('layouts/app'); ?>
 <?= $this->section('title'); ?>
-Connexion
+Utilisateurs
 <?= $this->endSection(); ?>
 <?= $this->section('h1'); ?>
 <h1>Utilisateurs</h1>
@@ -105,7 +105,7 @@ Connexion
 <?= $this->section('js'); ?>
 <script>
   function del(id) {
-    if (confirm("Voulez vous vraiment supprimer cette utilisateur?")) {
+    if (confirm("Voulez vous vraiment supprimer cet utilisateur?")) {
       window.location = "<?= base_url('utilisateurs/supprimer/') ?>" + id
     };
   }
