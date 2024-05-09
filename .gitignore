@@ -104,9 +104,9 @@ _modules/*
 nbproject/
 build/
 nbbuild/
-dist/
+# dist/
 nbdist/
-nbactions.xml
+nb<i class="ti ti-settings"></i>.xml
 nb-configuration.xml
 .nb-gradle/
 
@@ -124,3 +124,4 @@ nb-configuration.xml
 
 /results/
 /phpunit*.xml
+/public/files_uploaded

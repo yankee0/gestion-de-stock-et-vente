@@ -12,6 +12,11 @@ class UserController extends BaseController
     {
     }
 
+    public function loginPage()
+    {
+        return view("login");
+    }
+
     public function login()
     {
         $data = $this->request->getPost();
@@ -19,7 +24,7 @@ class UserController extends BaseController
 
         $user = $model
             ->where("login", $data["login"])
-            ->where("password", $data["password"])
+            ->where("password", sha1($data["password"]))
             ->first();
 
         if (!$user) {
