@@ -24,4 +24,10 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->post('modifier', 'ItemController::update');
     $routes->get('supprimer/(:num)', 'ItemController::delete/$1');
   });
+
+  $routes->group('factures', function ($routes) {
+    $routes->get('/', 'InvoiceController::index');
+    $routes->get('creer', 'InvoiceController::createPage');
+    $routes->get('supprimer/(:num)', 'InvoiceController::delete/$1');
+  });
 });

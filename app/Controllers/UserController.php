@@ -63,6 +63,7 @@ class UserController extends BaseController
         }
 
         $data = $this->request->getPost();
+        $data["password"] = sha1($data["password"]);
         $model = new UserModel();
 
         try {

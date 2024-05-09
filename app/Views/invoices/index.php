@@ -1,56 +1,22 @@
 <?= $this->extend('layouts/app'); ?>
 <?= $this->section('title'); ?>
-Inventaire
+Factures
 <?= $this->endSection(); ?>
 <?= $this->section('h1'); ?>
-<h1>Inventaire</h1>
+<h1>Factures</h1>
+<?= $this->endSection(); ?>
+<?= $this->section('add'); ?>
+<a class="btn btn-success" href="<?= base_url("factures/creer") ?>" role="button">Nouvelle facture</a>
+
 <?= $this->endSection(); ?>
 
+
 <?= $this->section('cols'); ?>
-<div class="col-12">
-  <div class="card">
-    <div class="card-body">
-      <div class="card-title">
-        Formulaire d'ajout
-      </div>
-      <div>
-        <?= form_open() ?>
-        <?= csrf_field() ?>
-        <div class="row">
-          <div class="col-md-4 col-lg-4 col-xl-3">
-            <div class="mb-3">
-              <label for="name" class="form-label">Nom</label>
-              <input value="<?= set_value("name") ?>" required type="text" class="form-control" name="name" id="name" />
-            </div>
-          </div>
-          <div class="col-md-4 col-lg-4 col-xl-3">
-            <div class="mb-3">
-              <label for="quantity" class="form-label">Quantité (en Kg ou en Unité)</label>
-              <input value="<?= set_value("quantity") ?>" required type="number" class="form-control" name="quantity" id="quantity" min="0" />
-            </div>
-          </div>
-          <div class="col-md-4 col-lg-4 col-xl-3">
-            <div class="mb-3">
-              <label for="price_per_unit" class="form-label">Prix par Kg ou Unité</label>
-              <input value="<?= set_value("price_per_unit") ?>" required type="number" min="0" minlength="5" class="form-control" name="price_per_unit" id="price_per_unit" />
-            </div>
-          </div>
-          <div class="col-12 text-center">
-            <button type="submit" class="btn btn-primary">
-              Ajouter à l'inventaire
-            </button>
-          </div>
-        </div>
-        <?= form_close() ?>
-      </div>
-    </div>
-  </div>
-</div>
 
 <div class="col-12">
   <div class="card">
     <div class="card-body">
-      <div class="card-title"><?= isset($_GET["r"]) ? "Résultat: " : "Liste des produits: " ?><?= count($items) ?> produit(s)</div>
+      <div class="card-title"><?= isset($_GET["r"]) ? "Résultat: " : "Liste des factures du mois: " ?><?= count($items) ?> factures(s)</div>
       <div class="d-flex justify-content-end">
         <form action="#">
           <div class="mb-3">
@@ -60,7 +26,7 @@ Inventaire
 
       </div>
       <div class="table-responsive card-table">
-        <table id="myTable" class="table table-vcenter">
+        <table class="table table-vcenter">
           <thead>
             <tr>
               <th></th>
@@ -147,7 +113,7 @@ Inventaire
 <?= $this->section('js'); ?>
 <script>
   function del(id) {
-    if (confirm("Voulez vous vraiment supprimer ce produit de l'inventaire? Ceci n'affectera pas les anciennes factures.")) {
+    if (confirm("Voulez vous vraiment supprimer cette facture? cette action je la comptabilisée dans les chiffres d'affaires!")) {
       window.location = "<?= base_url('inventaire/supprimer/') ?>" + id
     };
   }
