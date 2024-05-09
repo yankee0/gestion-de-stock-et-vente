@@ -81,4 +81,9 @@ class UserController extends BaseController
             ->withInput()
             ->with("message", "Suppression réussie");
     }
+
+    public function dashboard()
+    {
+        return view("dashboard");
+    }
 }

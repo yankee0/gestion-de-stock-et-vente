@@ -13,7 +13,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title><?= $this->renderSection("title"); ?> | Trans It!</title>
+  <title><?= $this->renderSection("title"); ?> | La Maison De Touba</title>
   <!-- CSS files -->
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.min.css">
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
@@ -61,7 +61,7 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
           <a href="<?= base_url("tableau-de-bord") ?>">
-            <img src="<?= base_url("logo.png") ?>" height="40" width="40" alt="Tabler" class="navbar-brand-image">
+            <img src="<?= base_url("img/logo.jpeg") ?>" alt="Tabler" class="navbar-brand-image">
           </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
@@ -78,13 +78,13 @@
             <a href="#" class="nav-link d-flex lh-1 text-reset p-0 btn d-flex gap-2 align-items-center px-1" data-bs-toggle="dropdown" aria-label="Open user menu">
               <i class="ti ti-user"></i>
               <div class="text-start">
-                <small class="text-primary"><?= session()->userData["profile"] ?></small> <br>
-                <?= session()->userData["name"] ?>
+                <small class="text-primary"><?= session()->user["profile"] ?></small> <br>
+                <?= session()->user["name"] ?>
               </div>
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
-              <a href="#" class="dropdown-item btn d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#modalIdResetPassword"><i class="ti ti-lock"></i> Modifier mon mot de passe</a>
-              <a href="mailto:yankeesuprem@gmail.com" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-headset"></i> Support</a>
+              <!-- <a href="#" class="dropdown-item btn d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#modalIdResetPassword"><i class="ti ti-lock"></i> Modifier mon mot de passe</a> -->
+              <a href="mailto:yankee#sendigitalpulse.com" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-headset"></i> Support</a>
               <a href="<?= base_url("deconnexion") ?>" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-power"></i> Se déconnecter</a>
             </div>
           </div>
@@ -110,7 +110,7 @@
               <li class="nav-item <?= url_is("utilisateurs*") ? "active" : "" ?>">
                 <a class="nav-link d-flex align-items-center" href="<?= base_url("utilisateurs") ?>">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <i class="ti ti-dashboard"></i>
+                    <i class="ti ti-users"></i>
                   </span>
                   <span class="nav-link-title">
                     Utilisateurs
@@ -118,61 +118,27 @@
                 </a>
               </li>
 
-              <li class="nav-item dropdown <?= url_is("clients*") ? "active" : "" ?>">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#navbar-help" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block">
-                    <i class="ti ti-users"></i>
-                  </span>
-                  <span class="nav-link-title">
-                    Clients
-                  </span>
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="<?= base_url("clients/ajouter") ?>">
-                    Créer un nouveau compte
-                  </a>
-                  <a class="dropdown-item" href="<?= base_url("clients") ?>">
-                    Lister les comptes
-                  </a>
-                </div>
-              </li>
-
-              <li class="nav-item dropdown <?= url_is("dossiers*") ? "active" : "" ?>">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block">
-                    <i class="ti ti-folder"></i>
-                  </span>
-                  <span class="nav-link-title">
-                    Dossiers
-                  </span>
-                </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="<?= base_url("dossiers/ajouter") ?>">
-                    Créer un nouveau dossier
-                  </a>
-                  <a class="dropdown-item" href="<?= base_url("dossiers") ?>">
-                    Lister les dossiers
-                  </a>
-                </div>
-              </li>
-              <li class="nav-item dropdown <?= url_is("factures*") ? "active" : "" ?>">
-                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#navbar-help" data-bs-toggle="dropdown" data-bs-auto-close="outside" role="button" aria-expanded="false">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block">
+              <li class="nav-item <?= url_is("utilisateurs*") ? "active" : "" ?>">
+                <a class="nav-link d-flex align-items-center" href="<?= base_url("utilisateurs") ?>">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
                     <i class="ti ti-file"></i>
                   </span>
                   <span class="nav-link-title">
                     Factures
                   </span>
                 </a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="<?= base_url("factures") ?>">
-                    Lister les dossiers facturés
-                  </a>
-                  <a class="dropdown-item" href="<?= base_url("factures/non-factures") ?>">
-                    Lister les dossiers non facturés
-                  </a>
-                </div>
               </li>
+              <li class="nav-item <?= url_is("utilisateurs*") ? "active" : "" ?>">
+                <a class="nav-link d-flex align-items-center" href="<?= base_url("utilisateurs") ?>">
+                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                    <i class="ti ti-clipboard-list"></i>
+                  </span>
+                  <span class="nav-link-title">
+                    Inventaire
+                  </span>
+                </a>
+              </li>
+
               <li class="nav-item dropdown <?= url_is("rapports*") ? "active" : "" ?>">
                 <a class="nav-link d-flex align-items-center" href="<?= base_url("rapports") ?>">
                   <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
@@ -184,24 +150,7 @@
                 </a>
               </li>
             </ul>
-            <div class="my-2 my-md-0 flex-grow-1 flex-md-grow-0 order-first order-md-last">
-              <form action="<?= base_url("recherches") ?>" class="d-flex gap-1">
-                <div class="input-icon">
-                  <span class="input-icon-addon">
-                    <!-- Download SVG icon from http://tabler-icons.io/i/search -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
-                      <path d="M21 21l-6 -6" />
-                    </svg>
-                  </span>
-                  <input type="text" name="r" value="<?= (isset($_GET["r"]) and url_is("recherches*")) ? $_GET["r"] : '' ?>" class="form-control" placeholder="Rechercher">
-                </div>
-                <button type="submit" class="btn btn-primary text-center">
-                  <i class="ti ti-search"></i>
-                </button>
-              </form>
-            </div>
+
           </div>
         </div>
       </div>
@@ -242,8 +191,7 @@
             <div class="col-12 col-lg-auto mt-3 mt-lg-0">
               <ul class="list-inline list-inline-dots mb-0">
                 <li class="list-inline-item">
-                  &copy; 2024 Trans It!
-                  Tout droit réservé.
+                  &copy; 2024 La Maison De Touba par <a href="https://sendigitalpulse.com" target="_blank">SDP</a>
                 </li>
               </ul>
             </div>
@@ -253,84 +201,6 @@
     </div>
   </div>
 
-  <div class="modal fade" id="modalIdResetPassword" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="modalTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="modalTitleId">
-            Modification de mot de passe
-          </h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <?= form_open("edit-password", ["id" => "editFormPwd"]) ?>
-          <?= csrf_field() ?>
-
-          <div class="mb-2">
-            <label class="form-label">
-              Mot de passe actuel
-            </label>
-            <div class="input-group input-group-flat">
-              <input required type="password" name="password" value="<?= set_value("password") ?>" id="password" class="form-control" placeholder="votre mot de passe">
-              <span class="input-group-text">
-                <a href="#" id="togglePassword" class="link-secondary" title="Afficher/Cacher" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                    <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                  </svg>
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">
-              Nouveau mot de passe
-            </label>
-            <div class="input-group input-group-flat">
-              <input minlength="7" required type="password" name="passwordn" value="<?= set_value("passwordn") ?>" id="passwordn" class="form-control" placeholder="Créez">
-              <span class="input-group-text">
-                <a href="#" id="togglePasswordn" class="link-secondary" title="Afficher/Cacher" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                    <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                  </svg>
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <div class="mb-2">
-            <label class="form-label">
-              Confirmer le mot de passe
-            </label>
-            <div class="input-group input-group-flat">
-              <input required type="password" name="passwordc" value="<?= set_value("passwordc") ?>" id="passwordc" class="form-control" placeholder="Confirmez">
-              <span class="input-group-text">
-                <a href="#" id="togglePasswordc" class="link-secondary" title="Afficher/Cacher" data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
-                  <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                    <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
-                    <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
-                  </svg>
-                </a>
-              </span>
-            </div>
-          </div>
-
-          <?= form_close() ?>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-            Fermer
-          </button>
-          <button type="submit" form="editFormPwd" class="btn btn-primary">Modifier le mot de passe</button>
-        </div>
-      </div>
-    </div>
-  </div>
 
 
 

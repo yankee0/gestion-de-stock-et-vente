@@ -7,3 +7,7 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'UserController::loginPage');
 $routes->post("/", "UserController::login");
+
+$routes->group('', ['filter' => 'auth'], function ($routes) {
+  $routes->get('tableau-de-bord', 'UserController::dashboard');
+});
