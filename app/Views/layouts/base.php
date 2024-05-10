@@ -13,7 +13,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title><?= $this->renderSection("title"); ?> | Trans It!</title>
+  <title><?= $this->renderSection("title"); ?> | La Maison De Touba</title>
   <!-- CSS files -->
   <link href="<?= base_url("pack/css/tabler.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/tabler-flags.min.css?1684106062") ?>" rel="stylesheet" />
