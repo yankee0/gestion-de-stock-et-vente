@@ -40,7 +40,21 @@ class InvoiceModel extends Model
     protected $beforeUpdate   = [];
     protected $afterUpdate    = [];
     protected $beforeFind     = [];
-    protected $afterFind      = [];
+    protected $afterFind      = ["getSales"];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    protected function getSales($data)
+    {
+        for ($i = 0; $i < count($data["data"]); $i++) {
+
+            $data["data"][$i]["sum"] = 0;
+            $data["data"][$i]["sales"] = (new SaleModel())->where("invoice_id", $data["data"][$i]["id"])->find();
+            foreach ($data["data"][$i]["sales"] as $sale) {
+                $data["data"][$i]["sum"] += ($sale["price_per_unit"] * $sale["quantity"]);
+            }
+        }
+        
+        return $data;
+    }
 }

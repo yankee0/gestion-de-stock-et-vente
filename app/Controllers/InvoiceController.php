@@ -21,7 +21,7 @@ class InvoiceController extends BaseController
 
         if ($r) {
             $model->like("ref", $r);
-            $model->orLike("", $r);
+            $model->orLike("users.name", $r);
         }
 
         return view("invoices/index", [

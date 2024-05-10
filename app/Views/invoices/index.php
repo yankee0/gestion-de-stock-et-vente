@@ -32,7 +32,8 @@ Factures
               <th></th>
               <th>Référence</th>
               <th>Date de création</th>
-              <th></th>
+              <th>Montant Total</th>
+              <th>Auteur</th>
             </tr>
           </thead>
           <tbody>
@@ -46,7 +47,8 @@ Factures
                 </td>
                 <td><?= $item["ref"] ?></td>
                 <td><?= $item["created_at"] ?></td>
-                <td></td>
+                <td><?= $item["sum"] ?></td>
+                <td><?= $item["by"] ?></td>
               </tr>
             <?php endforeach ?>
           </tbody>
