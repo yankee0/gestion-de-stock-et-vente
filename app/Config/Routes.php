@@ -28,6 +28,8 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
   $routes->group('factures', function ($routes) {
     $routes->get('/', 'InvoiceController::index');
     $routes->get('creer', 'InvoiceController::createPage');
+    $routes->get('creer/token', 'InvoiceController::create_token');
+    $routes->get('creer/getItems', 'InvoiceController::get_items');
     $routes->get('supprimer/(:num)', 'InvoiceController::delete/$1');
   });
 });

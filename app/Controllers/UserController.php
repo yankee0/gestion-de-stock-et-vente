@@ -19,7 +19,7 @@ class UserController extends BaseController
         }
 
         return view("users/index", [
-            "users" => $model->find()
+            "users" => $model->orderBy("name","asc")->find()
         ]);
     }
 

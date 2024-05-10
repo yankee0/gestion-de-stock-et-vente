@@ -18,7 +18,7 @@ class ItemController extends BaseController
         }
 
         return view("items/index", [
-            "items" => $model->find()
+            "items" => $model->orderBy("name","asc")->find()
         ]);
     }
 

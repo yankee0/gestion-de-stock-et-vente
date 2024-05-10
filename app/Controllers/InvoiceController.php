@@ -4,10 +4,12 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\InvoiceModel;
-use CodeIgniter\HTTP\ResponseInterface;
+use App\Models\ItemModel;
+use CodeIgniter\API\ResponseTrait;
 
 class InvoiceController extends BaseController
 {
+    use ResponseTrait;
     public function index()
     {
         $r = $this->request->getGet("r");
@@ -36,6 +38,26 @@ class InvoiceController extends BaseController
 
     public function createPage()
     {
-        return view("invoices/create");
+        $itemsModel = new ItemModel();
+        return view("invoices/create", [
+            "items" => $itemsModel->orderBy("name", "asc")->find()
+        ]);
+    }
+
+    public function create_token()
+    {
+        return $this->respond(csrf_hash());
+    }
+
+    public function get_items()
+    {
+        $itemsModel = new ItemModel();
+
+        $data = $itemsModel
+            ->where("quantity >", 0)
+            ->orderBy("name")
+            ->findAll();
+
+        return $this->respond($data);
     }
 }

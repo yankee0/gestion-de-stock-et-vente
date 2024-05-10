@@ -57,7 +57,6 @@ Inventaire
             <input type="text" class="form-control" name="r" value="<?= $_GET["r"] ?? "" ?>" placeholder="Rechercher" />
           </div>
         </form>
-
       </div>
       <div class="table-responsive card-table">
         <table id="myTable" class="table table-vcenter">
