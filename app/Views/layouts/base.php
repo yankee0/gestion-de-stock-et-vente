@@ -20,6 +20,7 @@
   <link href="<?= base_url("pack/css/tabler-payments.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/tabler-vendors.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/demo.min.css?1684106062") ?>" rel="stylesheet" />
+  <link rel="shortcut icon" href="<?= base_url("img/logo.jpeg") ?>" type="image/x-icon">
   <style>
     @import url('https://rsms.me/inter/inter.css');
 

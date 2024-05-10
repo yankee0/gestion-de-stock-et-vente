@@ -23,7 +23,7 @@
   <link href="<?= base_url("pack/css/tabler-vendors.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/demo.min.css?1684106062") ?>" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <link rel="shortcut icon" href="<?= base_url("logo.png") ?>" type="image/x-icon">
+  <link rel="shortcut icon" href="<?= base_url("img/logo.jpeg") ?>" type="image/x-icon">
   <style>
     @import url('https://rsms.me/inter/inter.css');
 
@@ -107,27 +107,29 @@
                 </a>
               </li>
 
-              <li class="nav-item <?= url_is("utilisateurs*") ? "active" : "" ?>">
-                <a class="nav-link d-flex align-items-center" href="<?= base_url("utilisateurs") ?>">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <i class="ti ti-users"></i>
-                  </span>
-                  <span class="nav-link-title">
-                    Utilisateurs
-                  </span>
-                </a>
-              </li>
+              <?php if (in_array(session()->user["profile"], ["ADMIN"])) : ?>
+                <li class="nav-item <?= url_is("utilisateurs*") ? "active" : "" ?>">
+                  <a class="nav-link d-flex align-items-center" href="<?= base_url("utilisateurs") ?>">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                      <i class="ti ti-users"></i>
+                    </span>
+                    <span class="nav-link-title">
+                      Utilisateurs
+                    </span>
+                  </a>
+                </li>
+                <li class="nav-item <?= url_is("inventaire*") ? "active" : "" ?>">
+                  <a class="nav-link d-flex align-items-center" href="<?= base_url("inventaire") ?>">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                      <i class="ti ti-clipboard-list"></i>
+                    </span>
+                    <span class="nav-link-title">
+                      Inventaire
+                    </span>
+                  </a>
+                </li>
+              <?php endif ?>
 
-              <li class="nav-item <?= url_is("inventaire*") ? "active" : "" ?>">
-                <a class="nav-link d-flex align-items-center" href="<?= base_url("inventaire") ?>">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <i class="ti ti-clipboard-list"></i>
-                  </span>
-                  <span class="nav-link-title">
-                    Inventaire
-                  </span>
-                </a>
-              </li>
 
               <li class="nav-item <?= url_is("factures*") ? "active" : "" ?>">
                 <a class="nav-link d-flex align-items-center" href="<?= base_url("factures") ?>">
@@ -139,18 +141,20 @@
                   </span>
                 </a>
               </li>
-              
 
-              <li class="nav-item dropdown <?= url_is("rapports*") ? "active" : "" ?>">
-                <a class="nav-link d-flex align-items-center" href="<?= base_url("rapports") ?>">
-                  <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
-                    <i class="ti ti-archive"></i>
-                  </span>
-                  <span class="nav-link-title">
-                    Rapports
-                  </span>
-                </a>
-              </li>
+              <?php if (in_array(session()->user["profile"], ["ADMIN"])) : ?>
+                <li class="nav-item dropdown <?= url_is("rapports*") ? "active" : "" ?>">
+                  <a class="nav-link d-flex align-items-center" href="<?= base_url("rapports") ?>">
+                    <span class="nav-link-icon d-md-none d-lg-inline-block"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                      <i class="ti ti-archive"></i>
+                    </span>
+                    <span class="nav-link-title">
+                      Rapports
+                    </span>
+                  </a>
+                </li>
+              <?php endif ?>
+
             </ul>
 
           </div>

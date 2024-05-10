@@ -12,17 +12,21 @@ $routes->get("/deconnexion", "UserController::logout");
 $routes->group('', ['filter' => 'auth'], function ($routes) {
   $routes->get('tableau-de-bord', 'UserController::dashboard');
 
-  $routes->group('utilisateurs', function ($routes) {
-    $routes->get('/', 'UserController::index');
-    $routes->post('/', 'UserController::create');
-    $routes->get('supprimer/(:num)', 'UserController::delete/$1');
-  });
+  $routes->group('', ['filter' => 'isAdmin'], function ($routes) {
+    $routes->group('utilisateurs', function ($routes) {
+      $routes->get('/', 'UserController::index');
+      $routes->post('/', 'UserController::create');
+      $routes->get('supprimer/(:num)', 'UserController::delete/$1');
+    });
 
-  $routes->group('inventaire', function ($routes) {
-    $routes->get('/', 'ItemController::index');
-    $routes->post('/', 'ItemController::create');
-    $routes->post('modifier', 'ItemController::update');
-    $routes->get('supprimer/(:num)', 'ItemController::delete/$1');
+    $routes->group('inventaire', function ($routes) {
+      $routes->get('/', 'ItemController::index');
+      $routes->post('/', 'ItemController::create');
+      $routes->post('modifier', 'ItemController::update');
+      $routes->get('supprimer/(:num)', 'ItemController::delete/$1');
+    });
+
+    $routes->get("rapports", "ReportController::index");
   });
 
   $routes->group('factures', function ($routes) {
@@ -33,6 +37,4 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->post('creer/createInvoice', 'InvoiceController::create');
     $routes->get('supprimer/(:num)', 'InvoiceController::delete/$1');
   });
-
-  $routes->get("rapports", "ReportController::index");
 });

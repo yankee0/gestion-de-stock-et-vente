@@ -33,8 +33,8 @@ Utilisateurs
             <div class="mb-3">
               <label for="profile" class="form-label">Profil</label>
               <select class="form-select " name="profile" id="profile">
-                <option <?= set_select("profile", "CAISSE") ?>>Caissier</option>
-                <option <?= set_select("profile", "CAISSE") ?> value="ADMIN">Administrateur</option>
+                <option value="CAISSE">Caissier</option>
+                <option value="ADMIN">Administrateur</option>
               </select>
             </div>
           </div>
