@@ -12,7 +12,7 @@ Rapports
   <div class="card">
     <div class="card-body">
       <div class="card-title">
-        Formulaire d'ajout
+        Rapport
       </div>
       <div>
         <form action="#">

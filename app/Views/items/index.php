@@ -25,7 +25,7 @@ Inventaire
           </div>
           <div class="col-md-4 col-lg-4 col-xl-3">
             <div class="mb-3">
-              <label for="quantity" class="form-label">Quantité (en Kg ou en Unité)</label>
+              <label for="quantity" class="form-label">Quantité (en Kg , Litre ou Unité)</label>
               <input value="<?= set_value("quantity") ?>" required type="number" class="form-control" name="quantity" id="quantity" min="0" />
             </div>
           </div>
