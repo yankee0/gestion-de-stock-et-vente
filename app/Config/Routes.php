@@ -33,4 +33,6 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->post('creer/createInvoice', 'InvoiceController::create');
     $routes->get('supprimer/(:num)', 'InvoiceController::delete/$1');
   });
+
+  $routes->get("rapports", "ReportController::index");
 });

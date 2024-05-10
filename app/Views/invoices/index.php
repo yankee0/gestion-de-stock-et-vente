@@ -56,57 +56,6 @@ Factures
     </div>
   </div>
 </div>
-<div class="modal fade" id="edit" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog" aria-labelledby="editTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editTitle">
-          Modification
-        </h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form id="edit_form" action="<?= base_url("inventaire/modifier") ?>" method="post">
-
-          <?= csrf_field() ?>
-          <input type="text" name="id" id="edit_id" hidden>
-          <div>
-            <div class="mb-3">
-              <label for="name" class="form-label">Nom</label>
-              <input value="<?= set_value("name") ?>" required type="text" class="form-control" name="name" id="edit_name" />
-            </div>
-          </div>
-          <div>
-            <div class="mb-3">
-              <label for="quantity" class="form-label">Quantité (en Kg ou en Unité)</label>
-              <input value="<?= set_value("quantity") ?>" required type="number" class="form-control" name="quantity" id="edit_quantity" min="0" />
-            </div>
-          </div>
-          <div>
-            <div class="mb-3">
-              <label for="price_per_unit" class="form-label">Prix par Kg ou Unité</label>
-              <input value="<?= set_value("price_per_unit") ?>" required type="number" min="0" minlength="5" class="form-control" name="price_per_unit" id="edit_price_per_unit" />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-          Fermer
-        </button>
-        <button form="edit_form" type="submit" class="btn btn-primary">Modifier</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Optional: Place to the bottom of scripts -->
-<script>
-  const myModal = new bootstrap.Modal(
-    document.getElementById("edit"),
-    options,
-  );
-</script>
 
 
 
