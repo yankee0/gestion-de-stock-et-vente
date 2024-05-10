@@ -32,6 +32,18 @@ class InvoiceController extends BaseController
     public function delete($id)
     {
         $model = new InvoiceModel();
+        $itemModel = new ItemModel();
+
+        $data = $model->where("id", $id)->find()[0];
+        foreach ($data["sales"] as $s) {
+            $item = $itemModel->where("name", $s["item_name"])->find()[0];
+            if ($item) {
+                $item["quantity"] += $s["quantity"];
+                $itemModel->save($item);
+            }
+        }
+
+
         $model->delete($id);
         return redirect()
             ->back()
@@ -94,7 +106,7 @@ class InvoiceController extends BaseController
             $saleModel->insert([
                 "invoice_id" => $invoice,
                 "item_name" => $i["name"],
-                "quantity" => $i["quantity"],
+                "quantity" => $i["count"],
                 "price_per_unit" => $i["price_per_unit"],
             ]);
         }

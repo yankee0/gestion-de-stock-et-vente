@@ -42,7 +42,6 @@ Factures
                 <td>
                   <div class="d-flex gap-2">
                     <button class="btn text-danger" onclick='del(<?= $item["id"] ?>)'><i class="ti ti-trash"></i></button>
-                    <button class="btn" onclick='setEdit(<?= json_encode($item) ?>)' data-bs-toggle="modal" data-bs-target="#edit"><i class="ti ti-edit"></i></button>
                   </div>
                 </td>
                 <td><?= $item["ref"] ?></td>
@@ -115,7 +114,7 @@ Factures
 <?= $this->section('js'); ?>
 <script>
   function del(id) {
-    if (confirm("Voulez vous vraiment supprimer cette facture? cette action je la comptabilisée dans les chiffres d'affaires!")) {
+    if (confirm("Voulez vous vraiment supprimer cette facture? Les ventes seront automatiquement restutuées aux stocks de produits.")) {
       window.location = "<?= base_url('factures/supprimer/') ?>" + id
     };
   }
