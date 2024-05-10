@@ -30,6 +30,7 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
     $routes->get('creer', 'InvoiceController::createPage');
     $routes->get('creer/token', 'InvoiceController::create_token');
     $routes->get('creer/getItems', 'InvoiceController::get_items');
+    $routes->post('creer/createInvoice', 'InvoiceController::create');
     $routes->get('supprimer/(:num)', 'InvoiceController::delete/$1');
   });
 });

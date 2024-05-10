@@ -30,9 +30,9 @@ Factures
           <thead>
             <tr>
               <th></th>
-              <th>Nom</th>
-              <th>Quantité (Kg ou Unité)</th>
-              <th>Prix par Kg ou Unité</th>
+              <th>Référence</th>
+              <th>Date de création</th>
+              <th></th>
             </tr>
           </thead>
           <tbody>
@@ -44,9 +44,9 @@ Factures
                     <button class="btn" onclick='setEdit(<?= json_encode($item) ?>)' data-bs-toggle="modal" data-bs-target="#edit"><i class="ti ti-edit"></i></button>
                   </div>
                 </td>
-                <td><?= $item["name"] ?></td>
-                <td><?= $item["quantity"] ?></td>
-                <td><?= $item["price_per_unit"] ?></td>
+                <td><?= $item["ref"] ?></td>
+                <td><?= $item["created_at"] ?></td>
+                <td></td>
               </tr>
             <?php endforeach ?>
           </tbody>
@@ -114,7 +114,7 @@ Factures
 <script>
   function del(id) {
     if (confirm("Voulez vous vraiment supprimer cette facture? cette action je la comptabilisée dans les chiffres d'affaires!")) {
-      window.location = "<?= base_url('inventaire/supprimer/') ?>" + id
+      window.location = "<?= base_url('factures/supprimer/') ?>" + id
     };
   }
 

@@ -18,6 +18,7 @@ const MainContent = () => {
   const [total, setTotal] = React.useState(0);
   const [item, setItem] = React.useState(null);
   const [quantity, setQuantity] = React.useState(1);
+  const [loading, setLoading] = React.useState(false);
 
   const getTotal = () => {
     let total = 0;
@@ -80,6 +81,24 @@ const MainContent = () => {
       updatedItems[index].count++;
       return updatedItems;
     });
+  };
+
+  const createInvoice = () => {
+    if (!selectedItems.length) return;
+    setLoading(true);
+    axios
+      .post(window.location.href + "/createInvoice", selectedItems)
+      .then((res) => {
+        window.location.href = res.data;
+      })
+      .catch((err) => {
+        console.log(err);
+        alert(
+          "Une erreur s'est produite lors de la création de facture - " +
+            err.response.data.messages.error || "ERROR SERVER"
+        );
+      })
+      .finally(() => setLoading(false));
   };
 
   React.useEffect(() => {
@@ -199,8 +218,13 @@ const MainContent = () => {
             <div>Total TTC en FCFA</div>
             <div className="display-4">{total}</div>
           </div>
-          <button type="submit" className="btn btn-success">
-            Créer la facture
+          <button
+            disabled={loading}
+            onClick={createInvoice}
+            type="submit"
+            className="btn btn-success"
+          >
+            {loading ? "Création en cours..." : "Créer la facture"}
           </button>
         </div>
       </div>

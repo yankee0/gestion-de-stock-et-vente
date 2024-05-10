@@ -5,7 +5,9 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\InvoiceModel;
 use App\Models\ItemModel;
+use App\Models\SaleModel;
 use CodeIgniter\API\ResponseTrait;
+use CodeIgniter\I18n\Time;
 
 class InvoiceController extends BaseController
 {
@@ -59,5 +61,44 @@ class InvoiceController extends BaseController
             ->findAll();
 
         return $this->respond($data);
+    }
+
+    public function create()
+    {
+        $data = $this->request->getBody();
+        $items = json_decode($data, true);
+
+        $db = \Config\Database::connect();
+        $db->transBegin();
+        $model = new InvoiceModel();
+        $invoice = $model->insert([
+            "ref" => strtotime(Time::now()),
+            "user_id" => session()->user["id"],
+        ]);
+        $itemModel = new ItemModel();
+        $saleModel = new SaleModel();
+        foreach ($items as $i) {
+            $occ = $itemModel->find($i["id"]);
+            if (!$occ) {
+                $model->delete($invoice);
+                $db->transComplete();
+                return $this->fail("Produit indisponible: " . $i["name"]);
+            }
+            if ($occ["quantity"] < $i["count"]) {
+                $model->delete($invoice);
+                $db->transComplete();
+                return $this->fail("Stock insuffisant: " . $i["name"]);
+            }
+            $occ["quantity"] -= $i["count"];
+            $itemModel->save($occ);
+            $saleModel->insert([
+                "invoice_id" => $invoice,
+                "item_name" => $i["name"],
+                "quantity" => $i["quantity"],
+                "price_per_unit" => $i["price_per_unit"],
+            ]);
+        }
+        $db->transComplete();
+        return $this->respond(base_url("/factures/" . $invoice));
     }
 }
