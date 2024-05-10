@@ -59,8 +59,16 @@ Rapports
   <div class="card">
     <div class="card-body">
       <div class="card-title"><?= isset($_GET["from"]) ? "Résultat: " : "Liste des factures du mois: " ?><?= count($invoices) ?> factures(s)</div>
-      <div class="d-flex justify-content-end">
+      <div class="text-center mb-3">
+        <?php
+        $sum = 0;
+        foreach ($invoices as $i) {
+          $sum += $i["sum"];
+        }
+        ?>
 
+        <h4>Total</h4>
+        <div class="display-4"><?= $sum ?> FCFA</div>
       </div>
       <div class="table-responsive card-table">
         <table class="table table-vcenter">
