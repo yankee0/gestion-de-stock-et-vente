@@ -84,7 +84,7 @@
 
 <body>
   <div class="invoice-container">
-    <img src="<?= base_url("img/logobw.png") ?>" alt="La Maison De Touba">
+    <img src="<?= base_url("img/logobw.jpg") ?>" alt="La Maison De Touba">
     <p>
       <strong>Contact</strong> <br>
       <span>77 704 92 52 - 78 330 71 71</span>
