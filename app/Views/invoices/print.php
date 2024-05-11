@@ -111,8 +111,8 @@
       </tbody>
       <tfoot>
         <tr>
-          <th colspan="3">Total</th>
-          <th><?= $sum ?> FCFA</th>
+          <th colspan="3">Total en  FCFA</th>
+          <th><?= $sum ?></th>
         </tr>
       </tfoot>
     </table>
