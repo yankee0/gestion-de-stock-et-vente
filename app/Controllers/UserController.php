@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\InvoiceModel;
+use App\Models\ItemModel;
 use App\Models\SaleModel;
 use App\Models\UserModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
@@ -97,9 +98,9 @@ class UserController extends BaseController
 
     public function dashboard()
     {
-        $invoiceModel = new InvoiceModel();
         $salesModel = new SaleModel();
         $userModel = new UserModel();
+        $itemModel = new ItemModel();
 
         //getDaily Sales
         $dailySales = $salesModel
@@ -154,6 +155,10 @@ class UserController extends BaseController
             "annualSales" => $annualSales,
             "userCount" => $userCount,
             "lineData" => json_encode($lineData),
+            "outOfStocks" => $itemModel
+                ->where("quantity", 0)
+                ->limit(5)
+                ->find()
         ]);
     }
 }

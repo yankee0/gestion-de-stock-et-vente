@@ -67,7 +67,7 @@
         <div class="navbar-nav flex-row order-md-last">
           <div class="nav-item d-none d-md-flex me-3">
             <div class="btn-list">
-              <a href="mailto:diopiboumanou@gmail.com" class="btn d-flex gap-2 align-items-center" target="_blank" rel="noreferrer">
+              <a href="mailto:yankee@sendigitalpulse.com" class="btn d-flex gap-2 align-items-center" target="_blank" rel="noreferrer">
                 <i class="ti ti-headset"></i>
                 <span>Support</span>
               </a>
@@ -84,7 +84,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
               <!-- <a href="#" class="dropdown-item btn d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#modalIdResetPassword"><i class="ti ti-lock"></i> Modifier mon mot de passe</a> -->
-              <a href="mailto:yankee#sendigitalpulse.com" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-headset"></i> Support</a>
+              <a href="mailto:yankee@sendigitalpulse.com" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-headset"></i> Support</a>
               <a href="<?= base_url("deconnexion") ?>" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-power"></i> Se déconnecter</a>
             </div>
           </div>

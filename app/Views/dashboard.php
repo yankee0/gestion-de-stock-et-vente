@@ -60,8 +60,38 @@ Tableau de bord
 <div class="col-md-6">
   <div class="card">
     <div class="card-body">
-      <div class="card-title">Évolution des vente de l'année <span class="text-primary"><?= date("Y") ?></span></div>
+      <div class="card-title">Évolution des ventes de l'année <span class="text-primary"><?= date("Y") ?></span></div>
       <canvas id="myChart"></canvas>
+    </div>
+  </div>
+</div>
+<div class="col-md-6 d-flex">
+  <div class="card flex-fill">
+    <div class="card-body">
+      <div class="card-title">Stocks épuisés</div>
+      <div class="table-responsive">
+        <table class="table table-vcenter ">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col">Nom du produit</th>
+              <th scope="col">Quantité</th>
+              <th scope="col">Prix unitaire</th>
+            </tr>
+          </thead>
+          <tbody>
+            <?php foreach ($outOfStocks as $o) : ?>
+              <tr>
+                <td><a class="btn btn-primary btn-sm" href="<?= base_url("inventaire?r=" . urlencode($o["name"])) ?>"><i class="ti ti-link"></i></a></td>
+                <td><?= $o["name"] ?></td>
+                <td><?= $o["quantity"] ?></td>
+                <td><?= $o["price_per_unit"] ?></td>
+              </tr>
+            <?php endforeach ?>
+          </tbody>
+        </table>
+      </div>
+
     </div>
   </div>
 </div>
