@@ -111,7 +111,7 @@
       </tfoot>
     </table>
     <p>Nous vous remercions pour votre confiance et votre fidélité. À bientôt :)</p>
-    <small>Par Sen Digita Pulse</small><br>
+    <small>Par Sen Digital Pulse</small><br>
     <small>https://sendigitalpulse.com</small>
   </div>
   <div class="no-print" style="margin-top:30px">
