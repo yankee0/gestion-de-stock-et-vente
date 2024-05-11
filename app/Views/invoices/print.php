@@ -24,6 +24,8 @@
     .invoice-container {
       padding-top: 30px;
       padding-bottom: 30px;
+      padding-left: 10px;
+      padding-right: 10px;
       max-width: 500px;
       margin: auto;
     }
@@ -72,6 +74,10 @@
       .no-print {
         display: none;
       }
+
+      body{
+        font-size: 12px;
+      }
     }
   </style>
 </head>
@@ -83,7 +89,7 @@
       <strong>Contact</strong> <br>
       <span>77 704 92 52 - 78 330 71 71</span>
     </p>
-    <h2>Facture Nº <?= $ref ?></h2>
+    <h3>Facture Nº <?= $ref ?></h3>
     <table>
       <thead>
         <tr>
