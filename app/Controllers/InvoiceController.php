@@ -113,4 +113,9 @@ class InvoiceController extends BaseController
         $db->transComplete();
         return $this->respond(base_url("/factures/" . $invoice));
     }
+
+    public function print($id)
+    {
+        return view("invoices/print", (new InvoiceModel())->where("id", $id)->find()[0]);
+    }
 }

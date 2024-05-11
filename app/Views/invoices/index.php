@@ -40,8 +40,10 @@ Factures
             <?php foreach ($items as $item) : ?>
               <tr>
                 <td>
-                  <div class="d-flex gap-2">
+                  <div class="d-flex gap-1">
                     <button class="btn text-danger" onclick='del(<?= $item["id"] ?>)'><i class="ti ti-trash"></i></button>
+                    <a href="<?= base_url("factures/".$item["id"]) ?>" class="btn text-primary" ><i class="ti ti-printer"></i></a>
+
                   </div>
                 </td>
                 <td><?= $item["ref"] ?></td>
