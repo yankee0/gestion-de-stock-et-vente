@@ -3,6 +3,8 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\InvoiceModel;
+use App\Models\SaleModel;
 use App\Models\UserModel;
 use CodeIgniter\Exceptions\PageNotFoundException;
 
@@ -19,7 +21,7 @@ class UserController extends BaseController
         }
 
         return view("users/index", [
-            "users" => $model->orderBy("name","asc")->find()
+            "users" => $model->orderBy("name", "asc")->find()
         ]);
     }
 
@@ -47,7 +49,7 @@ class UserController extends BaseController
 
         session()->set("user", $user);
         return redirect()
-            ->to("/tableau-de-bord");
+            ->to($user["profile"] == "ADMIN" ? "/tableau-de-bord" : "factures");
     }
 
     public function logout()
@@ -95,6 +97,63 @@ class UserController extends BaseController
 
     public function dashboard()
     {
-        return view("dashboard");
+        $invoiceModel = new InvoiceModel();
+        $salesModel = new SaleModel();
+        $userModel = new UserModel();
+
+        //getDaily Sales
+        $dailySales = $salesModel
+            ->select("SUM(sales.price_per_unit * sales.quantity) as sum")
+            ->join("invoices", "invoices.id = sales.invoice_id")
+            ->where("DAY(invoices.created_at)", date("d"))
+            ->where("MONTH(invoices.created_at)", date("m"))
+            ->where("YEAR(invoices.created_at)", date("Y"))
+            ->first();
+
+        //getWeekly Sales
+        $weeklySales = $salesModel
+            ->select("SUM(sales.price_per_unit * sales.quantity) as sum")
+            ->join("invoices", "invoices.id = sales.invoice_id")
+            ->where("WEEK(invoices.created_at)", date("W"))
+            ->where("YEAR(invoices.created_at)", date("Y"))
+            ->first();
+
+        //getMonthly Sales
+        $monthlySales = $salesModel
+            ->select("SUM(sales.price_per_unit * sales.quantity) as sum")
+            ->join("invoices", "invoices.id = sales.invoice_id")
+            ->where("MONTH(invoices.created_at)", date("m"))
+            ->where("YEAR(invoices.created_at)", date("Y"))
+            ->first();
+
+        //getAnnual Sales
+        $annualSales = $salesModel
+            ->select("SUM(sales.price_per_unit * sales.quantity) as sum")
+            ->join("invoices", "invoices.id = sales.invoice_id")
+            ->where("YEAR(invoices.created_at)", date("Y"))
+            ->first();
+
+        //getUsers Count
+        $userCount = $userModel->countAllResults();
+
+        //getSales line graphe
+        $lineData = [];
+        for ($i = 0; $i < 12; $i++) {;
+            $lineData[$i] = $salesModel
+                ->select("SUM(sales.price_per_unit * sales.quantity) as sum")
+                ->join("invoices", "invoices.id = sales.invoice_id")
+                ->where("MONTH(invoices.created_at)", date($i))
+                ->where("YEAR(invoices.created_at)", date("Y"))
+                ->first()["sum"];
+        }
+
+        return view("dashboard", [
+            "dailySales" => $dailySales,
+            "weeklySales" => $weeklySales,
+            "monthlySales" => $monthlySales,
+            "annualSales" => $annualSales,
+            "userCount" => $userCount,
+            "lineData" => json_encode($lineData),
+        ]);
     }
 }
