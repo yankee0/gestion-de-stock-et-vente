@@ -139,7 +139,7 @@ const MainContent = () => {
           <div class="col-md-4 col-lg-4 col-xl-3">
             <div class="mb-3">
               <label htmlFor="quantity" class="form-label">
-                Quantité (en Kg , Litre ou Unité)
+                Quantité (en Kg , Litres ou Unité)
               </label>
               <input
                 value={quantity}

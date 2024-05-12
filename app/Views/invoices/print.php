@@ -87,7 +87,7 @@
     <img src="<?= base_url("img/logobw.jpg") ?>" alt="La Maison De Touba">
     <p>
       <strong>Contact</strong> <br>
-      <span>78 330 71 71</span>
+      <span>78 630 71 71</span>
     </p>
     <h3>Facture Nº <?= $ref ?></h3>
     <table>
