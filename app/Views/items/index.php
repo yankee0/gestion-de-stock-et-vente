@@ -26,13 +26,13 @@ Inventaire
           <div class="col-md-4 col-lg-4 col-xl-3">
             <div class="mb-3">
               <label for="quantity" class="form-label">Quantité (en Kg , Litre ou Unité)</label>
-              <input value="<?= set_value("quantity") ?>" required type="number" class="form-control" name="quantity" id="quantity" min="0" />
+              <input value="<?= set_value("quantity") ?>" required type="number" step="0.001" class="form-control" name="quantity" id="quantity" min="0" />
             </div>
           </div>
           <div class="col-md-4 col-lg-4 col-xl-3">
             <div class="mb-3">
               <label for="price_per_unit" class="form-label">Prix par Kg ou Unité</label>
-              <input value="<?= set_value("price_per_unit") ?>" required type="number" min="0" minlength="5" class="form-control" name="price_per_unit" id="price_per_unit" />
+              <input value="<?= set_value("price_per_unit") ?>" required type="number" step="0.001" min="0" minlength="5" class="form-control" name="price_per_unit" id="price_per_unit" />
             </div>
           </div>
           <div class="col-12 text-center">
@@ -111,13 +111,13 @@ Inventaire
           <div>
             <div class="mb-3">
               <label for="quantity" class="form-label">Quantité (en Kg ou en Unité)</label>
-              <input value="<?= set_value("quantity") ?>" required type="number" class="form-control" name="quantity" id="edit_quantity" min="0" />
+              <input value="<?= set_value("quantity") ?>" required type="number" step="0.001" class="form-control" name="quantity" id="edit_quantity" min="0" />
             </div>
           </div>
           <div>
             <div class="mb-3">
               <label for="price_per_unit" class="form-label">Prix par Kg ou Unité</label>
-              <input value="<?= set_value("price_per_unit") ?>" required type="number" min="0" minlength="5" class="form-control" name="price_per_unit" id="edit_price_per_unit" />
+              <input value="<?= set_value("price_per_unit") ?>" required type="number" step="0.001" min="0" minlength="5" class="form-control" name="price_per_unit" id="edit_price_per_unit" />
             </div>
           </div>
         </form>

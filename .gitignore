@@ -106,7 +106,7 @@ build/
 nbbuild/
 # dist/
 nbdist/
-nb<i class="ti ti-settings"></i>.xml
+nb.xml
 nb-configuration.xml
 .nb-gradle/
 

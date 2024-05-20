@@ -148,6 +148,7 @@ const MainContent = () => {
                 }}
                 required
                 type="number"
+                step="0.001"
                 className="form-control"
                 name="quantity"
                 id="quantity"
