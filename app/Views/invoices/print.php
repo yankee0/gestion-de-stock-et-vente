@@ -75,7 +75,7 @@
         display: none;
       }
 
-      body{
+      body {
         font-size: 12px;
       }
     }
@@ -84,10 +84,10 @@
 
 <body>
   <div class="invoice-container">
-    <img src="<?= base_url("img/logobw.jpg") ?>" alt="La Maison De Touba">
+    <img src="<?= base_url("img/coco.jpg") ?>" alt="<?= $_ENV['APP_NAME'] ?>">
     <p>
       <strong>Contact</strong> <br>
-      <span>78 630 71 71</span>
+      <span>77 702 93 20</span>
     </p>
     <h3>Facture Nº <?= $ref ?></h3>
     <table>
@@ -111,14 +111,14 @@
       </tbody>
       <tfoot>
         <tr>
-          <th colspan="3">Total en  FCFA</th>
+          <th colspan="3">Total en FCFA</th>
           <th><?= $sum ?></th>
         </tr>
       </tfoot>
     </table>
     <p>Nous vous remercions pour votre confiance et votre fidélité. À bientôt :)</p>
-    <small>Par Sen Digital Pulse</small><br>
-    <small>https://sendigitalpulse.com</small>
+    <small>Powered by</small><br>
+    <small><img src="<?= base_url('img/logo.png')  ?>" alt="Jawoo"></small>
   </div>
   <div class="no-print" style="margin-top:30px">
     <button onclick="window.print()">Imprimer la facture</button>
