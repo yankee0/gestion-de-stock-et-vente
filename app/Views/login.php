@@ -10,7 +10,7 @@ Connexion
     <div class="card card-md">
       <div class="card-body">
         <div class="text-center">
-          <img src="<?= base_url("img/logo.jpeg") ?>" style="height:100px" class="mx-auto">
+          <img src="<?= base_url("img/coco.jpg") ?>" style="height:150px" class="mx-auto">
         </div>
         <h2 class="h2 text-center mb-4">Connectez vous à votre compte</h2>
         <?php if (session()->has("error")) : ?>
@@ -51,10 +51,13 @@ Connexion
         </div>
 
         <?= form_close() ?>
+        <div class="text-center text-muted mt-3 text-center">
+          ©2024 <?= $_ENV['APP_NAME'] ?> <br> powered by <br>
+          <a href="https://jawoo.io" target="_blank">
+            <img src="<?= base_url("img/logo.png") ?>" style="height:40px" class="mx-auto">
+          </a>
+        </div>
       </div>
-    </div>
-    <div class="text-center text-muted mt-3">
-      ©2024 La Maison De Touba par <a href="https://sendigitalpulse.com" target="_blank">SDP</a>
     </div>
   </div>
 </div>

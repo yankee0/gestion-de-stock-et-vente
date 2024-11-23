@@ -27,11 +27,11 @@ class CreateSales extends Migration
                 'null' => true,
             ],
             'quantity' => [
-                'type' => 'DOUBLE',
+                'type' => 'FLOAT',
                 'null' => true,
             ],
             'price_per_unit' => [
-                'type' => 'DOUBLE',
+                'type' => 'FLOAT',
                 'null' => true,
             ],
         ]);

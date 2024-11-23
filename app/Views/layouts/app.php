@@ -47,6 +47,13 @@
       width: fit-content;
       max-width: 500px;
     }
+
+    #app_logo {
+      width: 100px;
+      height: 50px;
+      object-fit: cover;
+      object-position: center;
+    }
   </style>
 </head>
 
@@ -61,13 +68,13 @@
         </button>
         <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
           <a href="<?= base_url("tableau-de-bord") ?>">
-            <img src="<?= base_url("img/logo.jpeg") ?>" alt="Tabler" class="navbar-brand-image">
+            <img id="app_logo" src="<?= base_url("img/coco.jpg") ?>" alt="Tabler" class="navbar-brand-image">
           </a>
         </h1>
         <div class="navbar-nav flex-row order-md-last">
           <div class="nav-item d-none d-md-flex me-3">
             <div class="btn-list">
-              <a href="mailto:yankee@sendigitalpulse.com" class="btn d-flex gap-2 align-items-center" target="_blank" rel="noreferrer">
+              <a href="mailto:yankeesuprem@icloud.com" class="btn d-flex gap-2 align-items-center" target="_blank" rel="noreferrer">
                 <i class="ti ti-headset"></i>
                 <span>Support</span>
               </a>
@@ -84,7 +91,7 @@
             </a>
             <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
               <!-- <a href="#" class="dropdown-item btn d-flex gap-2 align-items-center" data-bs-toggle="modal" data-bs-target="#modalIdResetPassword"><i class="ti ti-lock"></i> Modifier mon mot de passe</a> -->
-              <a href="mailto:yankee@sendigitalpulse.com" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-headset"></i> Support</a>
+              <a href="mailto:yankeesuprem@icloud.com" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-headset"></i> Support</a>
               <a href="<?= base_url("deconnexion") ?>" class="dropdown-item d-flex gap-2 align-items-center"><i class="ti ti-power"></i> Se déconnecter</a>
             </div>
           </div>
@@ -190,14 +197,16 @@
           </div>
         </div>
       </div>
-      <footer class="footer footer-transparent d-print-none">
+      <footer class="footer d-print-none">
         <div class="container-xl">
           <div class="row text-center align-items-center flex-row-reverse">
 
             <div class="col-12 col-lg-auto mt-3 mt-lg-0">
               <ul class="list-inline list-inline-dots mb-0">
                 <li class="list-inline-item">
-                  &copy; 2024 La Maison De Touba par <a href="https://sendigitalpulse.com" target="_blank">SDP</a>
+                  &copy; 2024 <?= $_ENV['APP_NAME'] ?> powerded by <a href="https://jawoo.io" target="_blank">
+                    <img src="<?= base_url("img/logo.png") ?>" alt="Jawoo" style=" height: 40px;">
+                  </a>
                 </li>
               </ul>
             </div>

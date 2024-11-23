@@ -12,7 +12,8 @@ class Yankee extends Seeder
             "name" => "Elhadji",
             "login" => "yankee",
             "password" => sha1("password"),
-            "profile" => "ADMIN"
+            "profile" => "ADMIN",
+            "created_at" => date("Y-m-d H:i:s"),
         ]);
     }
 }
