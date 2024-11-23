@@ -13,7 +13,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title><?= $this->renderSection("title"); ?> | La Maison De Touba</title>
+  <title><?= $this->renderSection("title"); ?> | <?= $_ENV['APP_NAME'] ?></title>
   <!-- CSS files -->
   <link rel="stylesheet" href="https://cdn.datatables.net/2.0.3/css/dataTables.bootstrap5.min.css">
   <script src="https://code.jquery.com/jquery-3.7.1.slim.min.js" integrity="sha256-kmHvs0B+OpCW5GVHUNjv9rOmY0IvSIRcf7zGUDTDQM8=" crossorigin="anonymous"></script>
@@ -23,7 +23,10 @@
   <link href="<?= base_url("pack/css/tabler-vendors.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/demo.min.css?1684106062") ?>" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
-  <link rel="shortcut icon" href="<?= base_url("img/logo.jpeg") ?>" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('/apple-touch-icon.png') ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('/favicon-32x32.png') ?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('/favicon-16x16.png') ?>">
+  <link rel="manifest" href="<?= base_url('/site.webmanifest') ?>">
   <style>
     @import url('https://rsms.me/inter/inter.css');
 

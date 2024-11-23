@@ -13,14 +13,17 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title><?= $this->renderSection("title"); ?> | La Maison De Touba</title>
+  <title><?= $this->renderSection("title"); ?> | <?= $_ENV['APP_NAME'] ?></title>
   <!-- CSS files -->
   <link href="<?= base_url("pack/css/tabler.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/tabler-flags.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/tabler-payments.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/tabler-vendors.min.css?1684106062") ?>" rel="stylesheet" />
   <link href="<?= base_url("pack/css/demo.min.css?1684106062") ?>" rel="stylesheet" />
-  <link rel="shortcut icon" href="<?= base_url("img/logo.jpeg") ?>" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="<?= base_url('/apple-touch-icon.png') ?>">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?= base_url('/favicon-32x32.png') ?>">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?= base_url('/favicon-16x16.png') ?>">
+  <link rel="manifest" href="<?= base_url('/site.webmanifest') ?>">
   <style>
     @import url('https://rsms.me/inter/inter.css');
 
